@@ -1373,9 +1373,9 @@ private:
 public:
     static const size_type npos = -1;
 
-    CHROMIUM_LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49 basic_string()
+    _LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49 basic_string()
         _NOEXCEPT_(is_nothrow_default_constructible<allocator_type>::value);
-    CHROMIUM_LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49 explicit basic_string(const allocator_type& __a);
+    _LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49 explicit basic_string(const allocator_type& __a);
     CHROMIUM_LIBCPP_NEVER_INLINE basic_string(const basic_string& __str);
     CHROMIUM_LIBCPP_NEVER_INLINE basic_string(const basic_string& __str, const allocator_type& __a);
 #ifndef _LIBCPP_HAS_NO_RVALUE_REFERENCES
@@ -1515,6 +1515,7 @@ CHROMIUM_LIBCPP_NEVER_INLINE
     basic_string& append(const basic_string& __str);
     basic_string& append(const basic_string& __str, size_type __pos, size_type __n=npos);
     basic_string& append(const value_type* __s, size_type __n);
+    CHROMIUM_LIBCPP_ALWAYS_INLINE
     basic_string& append(const value_type* __s);
     basic_string& append(size_type __n, value_type __c);
     template<class _InputIterator>
@@ -2750,6 +2751,7 @@ basic_string<_CharT, _Traits, _Allocator>::append(const basic_string& __str, siz
 }
 
 template <class _CharT, class _Traits, class _Allocator>
+CHROMIUM_LIBCPP_ALWAYS_INLINE
 basic_string<_CharT, _Traits, _Allocator>&
 basic_string<_CharT, _Traits, _Allocator>::append(const value_type* __s)
 {
@@ -3846,7 +3848,7 @@ basic_string<_CharT, _Traits, _Allocator>::__invariants() const
 // operator==
 
 template<class _CharT, class _Traits, class _Allocator>
-inline _LIBCPP_INLINE_VISIBILITY
+inline CHROMIUM_LIBCPP_INLINE_VISIBILITY
 bool
 operator==(const basic_string<_CharT, _Traits, _Allocator>& __lhs,
            const basic_string<_CharT, _Traits, _Allocator>& __rhs) _NOEXCEPT
@@ -3858,7 +3860,7 @@ operator==(const basic_string<_CharT, _Traits, _Allocator>& __lhs,
 }
 
 template<class _Allocator>
-inline _LIBCPP_INLINE_VISIBILITY
+inline CHROMIUM_LIBCPP_INLINE_VISIBILITY
 bool
 operator==(const basic_string<char, char_traits<char>, _Allocator>& __lhs,
            const basic_string<char, char_traits<char>, _Allocator>& __rhs) _NOEXCEPT
