@@ -2004,7 +2004,7 @@ basic_string<_CharT, _Traits, _Allocator>::__invalidate_iterators_past(size_type
 }
 
 template <class _CharT, class _Traits, class _Allocator>
-inline CHROMIUM_LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49
+inline _LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49
 basic_string<_CharT, _Traits, _Allocator>::basic_string()
     _NOEXCEPT_(is_nothrow_default_constructible<allocator_type>::value)
 {
@@ -2015,7 +2015,7 @@ basic_string<_CharT, _Traits, _Allocator>::basic_string()
 }
 
 template <class _CharT, class _Traits, class _Allocator>
-inline CHROMIUM_LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49
+inline _LIBCPP_INLINE_VISIBILITY_EXCEPT_GCC49
 basic_string<_CharT, _Traits, _Allocator>::basic_string(const allocator_type& __a)
     : __r_(__a)
 {
